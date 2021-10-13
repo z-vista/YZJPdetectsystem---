@@ -1,0 +1,125 @@
+﻿//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ 生成的包含文件。
+// 供 YZJPdetectsystem.rc 使用
+//
+#define IDM_ABOUTBOX                    0x0010
+#define IDD_ABOUTBOX                    100
+#define IDS_ABOUTBOX                    101
+#define IDD_YZJPDETECTSYSTEM_DIALOG     102
+#define IDP_SOCKETS_INIT_FAILED         103
+#define IDI_ICON1                       128
+#define IDR_MAINFRAME                   133
+#define IDD_CAMSET_DIALOG               134
+#define IDD_CALIBRATION_RESULT_DLG      136
+#define IDD_DIALOG_SYS_SET              155
+#define IDC_EDIT_TOPLIMIT               1000
+#define IDC_EDIT_LOWERLIMIT             1001
+#define IDC_LIST_MESSAGE                1002
+#define IDC_PIC_LEFT                    1003
+#define IDC_PIC_RIGHT                   1004
+#define IDC_STATIC_CONFIG               1005
+#define IDC_STATIC_TOPLIMIT             1006
+#define IDC_PIC_LEFT2                   1007
+#define IDC_PIC_RIGHT2                  1008
+#define IDC_STATIC_LOWERLIMIT           1009
+#define IDC_STATIC_SEND_COUNT           1010
+#define IDC_EDIT_SEND_COUNT             1011
+#define IDC_STATIC_CAM1                 1012
+#define IDC_EDIT_POSITION1              1013
+#define IDC_STATIC_CAM3                 1014
+#define IDC_EDIT_POSITION2              1015
+#define IDC_STATIC_2PLC                 1016
+#define IDC_STATIC_CAM2                 1017
+#define IDC_STATIC_CAM4                 1018
+#define IDC_EDIT_POSITION3              1019
+#define IDC_EDIT_POSITION4              1020
+#define IDC_STATIC_CAM5                 1021
+#define IDC_STATIC_WZFK                 1022
+#define IDC_STATIC_XZFK                 1023
+#define IDC_CAM_PIC                     10120
+#define IDC_CAM4_BUTTON                 10121
+#define IDC_CAM1_BUTTON                 10122
+#define IDC_CAM2_BUTTON                 10123
+#define IDC_CAM3_BUTTON                 10124
+#define IDC_EDIT_ROIX                   10125
+#define IDC_EDIT_ROIY                   10126
+#define IDC_EDIT_ROIW                   10127
+#define IDC_EDIT_ROIH                   10128
+#define IDC_STATIC_ROIX                 10129
+#define IDC_STATIC_ROIY                 10130
+#define IDC_STATIC_ROIW                 10131
+#define IDC_STATIC_ROIH                 10132
+#define IDC_STATIC_ROISET               10133
+#define IDC_CALIB_BUTTON                10134
+#define IDC_STATIC_RESULT_PIC           10135
+#define IDC_OFFLINE_CALI_BUTTON         10136
+#define IDC_PIC_TEST_BUTTON             10137
+#define IDC_THRESH_EDIT                 10138
+#define IDC_THRESH_STATIC               10139
+#define IDC_BAR_EXPOSETIME_SLIDER       10140
+#define IDC_EXPOSETIME_STATIC           10141
+#define IDC_EXPOSETIME_EDIT             10142
+#define IDC_BAR_GAIN_SLIDER             10143
+#define IDC_EDIT_PAPER1                 10144
+#define IDC_GAIN_STATIC                 10145
+#define IDC_EDIT_WZFK                   10146
+#define IDC_EDIT_PAPER2                 10147
+#define IDC_GAIN_EDIT                   10148
+#define IDC_EDIT_XZFK                   10149
+#define IDC_EDIT_PAPER3                 10150
+#define IDC_BAR_LIGHTER_SLIDER          10151
+#define IDC_EDIT_PAPER4                 10152
+#define IDC_EDIT_RUNROIX                10153
+#define IDC_EDIT_RUNROIH                10154
+#define IDC_STATIC_RUNROIX              10155
+#define IDC_EDIT_RUNROIY                10156
+#define IDC_EDIT_RUNROIW                10157
+#define IDC_STATIC_RUNROIY              10158
+#define IDC_LIGHTER_STATIC              10159
+#define IDC_LIGHTER_EDIT                10160
+#define IDC_STATIC_RUNROIW              10161
+#define IDC_STATIC_RUNROIH              10162
+#define IDC_STATIC_GROUP_RUN            10163
+#define IDC_BUTTON_SYS_SET              10166
+#define IDC_CHECK_SOURCE_SAVE           10167
+#define IDC_CHECK_RESULT_SAVE           10168
+#define IDC_CHECK_OSTRANSDS             10169
+#define IDC_EDIT_SAVE_FREQUEN           10172
+#define IDC_SPIN_SAVE_FREQUE            10173
+#define IDC_EDIT_RESULT_NUM             10174
+#define IDC_SPIN_RESULT_NUM             10175
+#define IDC_STATIC_REULST_NUM           10176
+#define IDC_STATIC_SAVE_FREQUEN         10177
+#define IDC_EDIT_STANDARD               10179
+#define IDC_STATIC_STANDARD             10180
+#define IDC_EDIT_REDUCED                10181
+#define IDC_STATIC_REDUCED              10182
+#define IDC_STATIC_FILTRATION_GROUP     10183
+#define IDC_STATIC_SAVE_GROUP           10184
+#define IDC_EDIT_BLINDAREA1             10185
+#define IDC_EDIT_BLINDAREA2             10186
+#define IDC_STATIC_BLINDAREA2           10187
+#define IDC_STATIC_BLINDAREA1           10188
+#define IDC_TILER_FACTOR_CHECK          10189
+#define IDC_CORE_FACTOR_CHECK           10190
+#define IDC_REVERSE_X_CHECK             10190
+#define IDC_REVERSE_X_CHECK2            10191
+#define IDC_REVERSE_Y_CHECK             10191
+#define IDC_EDIT_SER_PORT               10191
+#define IDC_EDIT_TIME_LEN               10192
+#define IDC_EDIT3                       10193
+#define IDC_EDIT_B_INTERL               10193
+#define IDC_STATIC_COM                  10194
+#define IDC_STATIC_TIME_LEN             10195
+#define IDC_STATIC_B_INTREL             10196
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        157
+#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_CONTROL_VALUE         10197
+#define _APS_NEXT_SYMED_VALUE           104
+#endif
+#endif

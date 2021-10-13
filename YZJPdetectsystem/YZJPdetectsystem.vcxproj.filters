@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{b2e87d17-798d-43f5-b62a-b68f8fe16844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modbus">
+      <UniqueIdentifier>{f7a73cb9-341c-4378-bef8-178ddbec7242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DeleteFile">
+      <UniqueIdentifier>{8a514a61-9697-496a-9b93-efe9aed56bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{acdd5584-d65f-44a5-9ad1-97084a3cc052}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Light">
+      <UniqueIdentifier>{23cb4fe2-ba97-436d-9b10-d91fdd50d74d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithm">
+      <UniqueIdentifier>{89b3cfee-aef4-40d4-8894-a0860a0e3dca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetSocket">
+      <UniqueIdentifier>{ace46091-c293-496b-a2b4-50cbf53bad0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{d341267c-234b-4540-afd3-694f92e56c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SerialPort">
+      <UniqueIdentifier>{3385b449-7792-448c-b5c3-0d7f39e3c7bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandDefine.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="M_Client.h">
+      <Filter>Modbus</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteFile.h">
+      <Filter>DeleteFile</Filter>
+    </ClInclude>
+    <ClInclude Include="YZJPdetectsystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="YZJPdetectsystemDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CGxCamManager.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ContrlLight.h">
+      <Filter>Light</Filter>
+    </ClInclude>
+    <ClInclude Include="findBound.h">
+      <Filter>Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="CamSetDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClibrationResultDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Calibration.h">
+      <Filter>Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NetSocket\NetSocket.h">
+      <Filter>NetSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="SysSetDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="createDir.h">
+      <Filter>DeleteFile</Filter>
+    </ClInclude>
+    <ClInclude Include="MyException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="LoggerEx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SerialPort\SerialPort.h">
+      <Filter>SerialPort</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="M_Client.cpp">
+      <Filter>Modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteFile.cpp">
+      <Filter>DeleteFile</Filter>
+    </ClCompile>
+    <ClCompile Include="YZJPdetectsystem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="YZJPdetectsystemDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CGxCamManager.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ContrlLight.cpp">
+      <Filter>Light</Filter>
+    </ClCompile>
+    <ClCompile Include="CamSetDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClibrationResultDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Calibration.cpp">
+      <Filter>Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NetSocket\NetSocket.cpp">
+      <Filter>NetSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="SysSetDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggerEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SerialPort\SerialPort.cpp">
+      <Filter>SerialPort</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\YZJPdetectsystem.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\icon1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\hdc.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\hdc.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\YZJPdetectsystem.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="YZJPdetectsystem.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
