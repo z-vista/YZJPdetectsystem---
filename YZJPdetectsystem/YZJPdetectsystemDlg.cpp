@@ -81,7 +81,7 @@ double average(vector<double> list)
 		double sum = std::accumulate(std::begin(list), std::end(list), 0.0);
 		if (list.size() > 0)
 			mean = sum / list.size(); //均值
-		//std::cout << "当前均值为：" << mean << "\n";
+		mlogger.TraceInfo(_T("xxxx--本次均值%lf\n"), mean);
 	}
 
 	return mean;
@@ -106,6 +106,7 @@ double StandardDeviation(vector<double> list)
 		else
 			pfcount = 0;
 	}
+	mlogger.TraceInfo(_T("xxxx--本次标准差%lf\n"), pfcount);
 	return pfcount;
 }
 
@@ -1299,18 +1300,18 @@ void YZJPdetectsystemDlg::OnBnClickedButstartsystem()
 	m_xclist.InsertString(0, countsrc);
 	m_xclist.SetCurSel(0);
 
-	int nComId = GetPrivateProfileInt("Blowpipe set", "COMid", 4, lpPath);
-	//串口的初始化
-	if (!mySerialPort.InitPort(nComId, CBR_9600, 'N', 8, 1, EV_RXCHAR))
-	{
-		mlogger.TraceError( "initPort fail!" );
-		//exit(0);
-	}
-	else
-	{
-		thread th(&YZJPdetectsystemDlg::receiveData, this);
-		th.detach();
-	}
+	//int nComId = GetPrivateProfileInt("Blowpipe set", "COMid", 4, lpPath);
+	////串口的初始化
+	//if (!mySerialPort.InitPort(nComId, CBR_9600, 'N', 8, 1, EV_RXCHAR))
+	//{
+	//	mlogger.TraceError( "initPort fail!" );
+	//	//exit(0);
+	//}
+	//else
+	//{
+	//	thread th(&YZJPdetectsystemDlg::receiveData, this);
+	//	th.detach();
+	//}
 #if 1
 
 
@@ -1761,7 +1762,7 @@ void YZJPdetectsystemDlg::proImage()
 #endif
 			//综合结果合成数量
 			int result_num = GetPrivateProfileInt(_T("Set Sfconfig"), _T("result_num"), 15, lpPath);
-			float meanhigh = 0.0;
+			double meanhigh = 0.0;
 			int meanresult = 0;
 			if (rehighData.size() < result_num)//单次结果处理流程
 			{
@@ -1800,7 +1801,7 @@ void YZJPdetectsystemDlg::proImage()
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差
 																	   //2、判断标准差是否符合小于条件a   
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)
+						if (/*pfcount >= 0 &&*/ pfcount < dMtandardDeviation)
 						{
 							//求均值
 							rehightOld = average(rehighData);
@@ -1816,7 +1817,7 @@ void YZJPdetectsystemDlg::proImage()
 					else
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差																		
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
+						if (/*pfcount >= 0 &&*/ pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
 						{
 							meanhigh = average(rehighData);//求均值							
 							if (abs(meanhigh - rehightOld) < dReducedValue)//均值与第一次的参考值比较
@@ -1841,6 +1842,7 @@ void YZJPdetectsystemDlg::proImage()
 						PositonResult tp_result;
 						tp_result.result = meanresult;
 						tp_result.position = meanhigh;
+						mlogger.TraceInfo(_T("xxxx--相机1综合算法结果：%d,position=%2lf\n"), tp_result.result,tp_result.position);
 						send_Data.push(tp_result);
 					}
 				}
@@ -2369,7 +2371,7 @@ void YZJPdetectsystemDlg::proImage2()
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差
 																	   //2、判断标准差是否符合小于条件a   
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)
+						if (/*pfcount >= 0 &&*/ pfcount < dMtandardDeviation)
 						{
 							//求均值
 							rehightOld = average(rehighData);
@@ -2385,7 +2387,7 @@ void YZJPdetectsystemDlg::proImage2()
 					else
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差																		
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
+						if (/*pfcount >= 0 && */pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
 						{
 							meanhigh = average(rehighData);//求均值							
 							if (abs(meanhigh - rehightOld) < dReducedValue)//均值与第一次的参考值比较
@@ -2935,7 +2937,7 @@ void YZJPdetectsystemDlg::proImage3()
 						double pfcount = StandardDeviation(rehighData);//求标准差
 																	   //2、判断标准差是否符合小于条件a   
 						//mlogger_sendData.TraceKeyInfo("xxx--第一次数据标准差%2lf", pfcount);
-						if (pfcount>=0&&pfcount < dMtandardDeviation)
+						if (/*pfcount>=0&&*/pfcount < dMtandardDeviation)//这里对标准差无法进行判断，因为标准差会趋于无限大或者无限小
 						{
 							//求均值
 							rehightOld = average(rehighData);
@@ -2952,7 +2954,7 @@ void YZJPdetectsystemDlg::proImage3()
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差	
 						//mlogger_sendData.TraceKeyInfo("xxx--标准差%2lf", pfcount);
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
+						if (/*pfcount >= 0 &&*/ pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
 						{
 							meanhigh = average(rehighData);//求均值							
 							if (abs(meanhigh - rehightOld) < dReducedValue)//均值与第一次的参考值比较
@@ -3488,7 +3490,7 @@ void YZJPdetectsystemDlg::proImage4()
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差
 																	   //2、判断标准差是否符合小于条件a   
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)
+						if (/*pfcount >= 0 &&*/ pfcount < dMtandardDeviation)
 						{
 							//求均值
 							rehightOld = average(rehighData);
@@ -3502,7 +3504,7 @@ void YZJPdetectsystemDlg::proImage4()
 					else
 					{
 						double pfcount = StandardDeviation(rehighData);//求标准差																		
-						if (pfcount >= 0 && pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
+						if (/*pfcount >= 0 &&*/ pfcount < dMtandardDeviation)//判断标准差是否符合小于条件a   
 						{
 							meanhigh = average(rehighData);//求均值							
 							if (abs(meanhigh - rehightOld) < dReducedValue)//均值与第一次的参考值比较
@@ -3791,6 +3793,7 @@ void YZJPdetectsystemDlg::modbus2PLC()
 			tp_result1.position = -tp_result1.position;
 			tp_result3.position = -tp_result3.position;
 			//mlogger.TraceKeyInfo("modbus发送数据线程：获取数据结束\n");
+			mlogger.TraceInfo(_T("xxxx--相机1综合算法结果：%d,position=%2lf\n"), tp_result1.result, tp_result1.position);
 			CString strbb_value;
 			strbb_value.Format("%d", wSendcout);
 			GetDlgItem(IDC_EDIT_SEND_COUNT)->SetWindowText(strbb_value);
@@ -4360,50 +4363,55 @@ void YZJPdetectsystemDlg::receiveData()
 		bool bk = true;
 
 		unsigned char *temp = new unsigned char[8];//动态创建一个数组
-
-		//打开继电器 1
-		temp[0] = 0x01;
-		temp[1] = 0x05;
-		temp[2] = 0x00;
-		temp[3] = 0x00;
-		temp[4] = 0xFF;
-		temp[5] = 0x00;
-		temp[6] = 0x8C;
-		temp[7] = 0x3A;
-		bk = mySerialPort.WriteData(temp, 8);//这个函数就是给串口发送数据的函数，temp就是要发送的数组。
-		int BlowpipeTimelength = GetPrivateProfileInt("Blowpipe set", "Timelength", 30000, lpPath);
-		Sleep(BlowpipeTimelength);
-		//关闭继电器 1
-		temp[0] = 0x01;
-		temp[1] = 0x05;
-		temp[2] = 0x00;
-		temp[3] = 0x00;
-		temp[4] = 0x00;
-		temp[5] = 0x00;
-		temp[6] = 0xCD;
-		temp[7] = 0xCA;
-		bk = mySerialPort.WriteData(temp, 8);//这个函数就是给串口发送数据的函数，temp就是要发送的数组。
-
-		if (!bk)
+		int nCount = GetPrivateProfileInt("Blowpipe set", "Count", 5, lpPath);
+		for (int i = 0; i < nCount; i++)
 		{
-			CString countsrc;
-			countsrc.Format("%s 串口掉线", myGetCurrentTime());
-			m_xclist.InsertString(0, countsrc);
-			m_xclist.SetCurSel(0);
-			//串口的初始化
-			int nComId = GetPrivateProfileInt("Blowpipe set", "COMid", 4, lpPath);
-			if (!mySerialPort.InitPort(nComId, CBR_9600, 'N', 8, 1, EV_RXCHAR))
+			//打开继电器 1
+			temp[0] = 0x01;
+			temp[1] = 0x05;
+			temp[2] = 0x00;
+			temp[3] = 0x00;
+			temp[4] = 0xFF;
+			temp[5] = 0x00;
+			temp[6] = 0x8C;
+			temp[7] = 0x3A;
+			bk = mySerialPort.WriteData(temp, 8);//这个函数就是给串口发送数据的函数，temp就是要发送的数组。
+			int BlowpipeTimelength = GetPrivateProfileInt("Blowpipe set", "Timelength", 30000, lpPath);
+			Sleep(BlowpipeTimelength);
+			//关闭继电器 1
+			temp[0] = 0x01;
+			temp[1] = 0x05;
+			temp[2] = 0x00;
+			temp[3] = 0x00;
+			temp[4] = 0x00;
+			temp[5] = 0x00;
+			temp[6] = 0xCD;
+			temp[7] = 0xCA;
+			bk = mySerialPort.WriteData(temp, 8);//这个函数就是给串口发送数据的函数，temp就是要发送的数组。
+			int BlowpipeWaitTimelength = GetPrivateProfileInt("Blowpipe set", "WaitTimelength", 30000, lpPath);
+			Sleep(BlowpipeWaitTimelength);
+			if (!bk)
 			{
-				countsrc.Format("%s 串口重连失败", myGetCurrentTime());
+				CString countsrc;
+				countsrc.Format("%s 串口掉线", myGetCurrentTime());
 				m_xclist.InsertString(0, countsrc);
 				m_xclist.SetCurSel(0);
-				//	continue;
-			}
+				//串口的初始化
+				int nComId = GetPrivateProfileInt("Blowpipe set", "COMid", 4, lpPath);
+				if (!mySerialPort.InitPort(nComId, CBR_9600, 'N', 8, 1, EV_RXCHAR))
+				{
+					countsrc.Format("%s 串口重连失败", myGetCurrentTime());
+					m_xclist.InsertString(0, countsrc);
+					m_xclist.SetCurSel(0);
+					//	continue;
+				}
 
-			countsrc.Format("%s 串口重连成功", myGetCurrentTime());
-			m_xclist.InsertString(0, countsrc);
-			m_xclist.SetCurSel(0);
+				countsrc.Format("%s 串口重连成功", myGetCurrentTime());
+				m_xclist.InsertString(0, countsrc);
+				m_xclist.SetCurSel(0);
+			}
 		}
+		
 
 		delete[]	temp;
 		int BlowpipeInterval = GetPrivateProfileInt("Blowpipe set", "Interval", 1200000, lpPath);//默认间隔20分钟

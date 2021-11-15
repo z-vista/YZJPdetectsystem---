@@ -29,7 +29,9 @@ CSysSetDlg::CSysSetDlg(CWnd* pParent /*=nullptr*/)
 	, m_bCoreFactorIs5(FALSE)
 	, m_comNum(0)
 	, m_timeLength(0)
+	, m_waitTimeLength(0)
 	, m_nBwInterl(0)
+	, m_nCount(0)
 {
 
 }
@@ -56,7 +58,9 @@ void CSysSetDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CORE_FACTOR_CHECK, m_bCoreFactorIs5);
 	DDX_Text(pDX, IDC_EDIT_SER_PORT, m_comNum);
 	DDX_Text(pDX, IDC_EDIT_TIME_LEN, m_timeLength);
+	DDX_Text(pDX, IDC_EDIT_WAIT_TIME_LEN, m_waitTimeLength);
 	DDX_Text(pDX, IDC_EDIT_B_INTERL, m_nBwInterl);
+	DDX_Text(pDX, IDC_EDIT_COUNT, m_nCount);
 }
 
 
@@ -145,16 +149,24 @@ void CSysSetDlg::InitUI()
 	((CButton*)GetDlgItem(IDC_TILER_FACTOR_CHECK))->SetCheck(m_bTilerFactorIs5 == TRUE ? 1 : 0); //瓦纸比例==5开关
 	((CButton*)GetDlgItem(IDC_CORE_FACTOR_CHECK))->SetCheck(m_bCoreFactorIs5 == TRUE ? 1 : 0); //芯纸比例==5开关
 
+	nValue = GetPrivateProfileInt("Blowpipe set", "Count", 5, g_dlg->lpPath);//
+	m_nCount = nValue;
 	nValue = GetPrivateProfileInt("Blowpipe set", "COMid", 4, g_dlg->lpPath);//
 	m_comNum = nValue;
 	nValue = GetPrivateProfileInt("Blowpipe set", "Timelength", 30000, g_dlg->lpPath);//
 	m_timeLength = nValue;
+	nValue = GetPrivateProfileInt("Blowpipe set", "WaitTimelength", 30000, g_dlg->lpPath);//
+	m_waitTimeLength = nValue;
 	nValue = GetPrivateProfileInt("Blowpipe set", "Interval", 1200000, g_dlg->lpPath);//
 	m_nBwInterl = nValue;
+	strbb_value.Format("%d", m_nCount);
+	GetDlgItem(IDC_EDIT_COUNT)->SetWindowText(strbb_value);
 	strbb_value.Format("%d", m_comNum);
 	GetDlgItem(IDC_EDIT_SER_PORT)->SetWindowText(strbb_value);
 	strbb_value.Format("%d", m_timeLength);
 	GetDlgItem(IDC_EDIT_TIME_LEN)->SetWindowText(strbb_value);
+	strbb_value.Format("%d", m_waitTimeLength);
+	GetDlgItem(IDC_EDIT_WAIT_TIME_LEN)->SetWindowText(strbb_value);
 	strbb_value.Format("%d", m_nBwInterl);
 	GetDlgItem(IDC_EDIT_B_INTERL)->SetWindowText(strbb_value);
 }
@@ -234,8 +246,12 @@ void CSysSetDlg::OnSize(UINT nType, int cx, int cy)
 		ChangeWidgetSize(IDC_STATIC_COM, cx, cy);
 		ChangeWidgetSize(IDC_EDIT_TIME_LEN, cx, cy);
 		ChangeWidgetSize(IDC_STATIC_TIME_LEN, cx, cy);
+		ChangeWidgetSize(IDC_EDIT_WAIT_TIME_LEN, cx, cy);
+		ChangeWidgetSize(IDC_STATIC_WAIT_TIME_LEN, cx, cy);
 		ChangeWidgetSize(IDC_EDIT_B_INTERL, cx, cy);
 		ChangeWidgetSize(IDC_STATIC_B_INTREL, cx, cy);
+		ChangeWidgetSize(IDC_EDIT_COUNT, cx, cy);
+		ChangeWidgetSize(IDC_STATIC_COUNT, cx, cy);
 		
 		GetClientRect(&m_DlgRect);   //最后要更新对话框的大小，当做下一次变化的旧坐标；
 	}
@@ -296,11 +312,17 @@ void CSysSetDlg::OnBnClickedOk()
 	WritePrivateProfileString("Set Sfconfig", "CoreFactorIs5", tp_strToWrite, g_dlg->lpPath);
 
 	memset(tp_strToWrite, 0x00, MAX_PATH);
+	sprintf(tp_strToWrite, "%d", m_nCount);
+	WritePrivateProfileString("Blowpipe set", "Count", tp_strToWrite, g_dlg->lpPath);
+	memset(tp_strToWrite, 0x00, MAX_PATH);
 	sprintf(tp_strToWrite, "%d", m_comNum);
 	WritePrivateProfileString("Blowpipe set", "COMid", tp_strToWrite, g_dlg->lpPath);
 	memset(tp_strToWrite, 0x00, MAX_PATH);
 	sprintf(tp_strToWrite, "%d", m_timeLength);
 	WritePrivateProfileString("Blowpipe set", "Timelength", tp_strToWrite, g_dlg->lpPath);
+	memset(tp_strToWrite, 0x00, MAX_PATH);
+	sprintf(tp_strToWrite, "%d", m_waitTimeLength);
+	WritePrivateProfileString("Blowpipe set", "WaitTimelength", tp_strToWrite, g_dlg->lpPath);
 	memset(tp_strToWrite, 0x00, MAX_PATH);
 	sprintf(tp_strToWrite, "%d", m_nBwInterl);
 	WritePrivateProfileString("Blowpipe set", "Interval", tp_strToWrite, g_dlg->lpPath);

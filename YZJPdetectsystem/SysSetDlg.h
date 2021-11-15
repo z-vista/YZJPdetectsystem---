@@ -45,5 +45,7 @@ public:
 	BOOL m_bCoreFactorIs5;
 	int m_comNum;
 	int m_timeLength;
+	int m_waitTimeLength;
 	int m_nBwInterl;
+	int m_nCount;
 };

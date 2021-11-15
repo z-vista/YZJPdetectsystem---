@@ -23,7 +23,7 @@
     <ProjectGuid>{977EE256-7EE1-41A3-B758-E23DF58F2EC2}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
     <RootNamespace>FDZdetectsystem</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

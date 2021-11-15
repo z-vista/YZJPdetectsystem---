@@ -107,11 +107,15 @@
 #define IDC_REVERSE_Y_CHECK             10191
 #define IDC_EDIT_SER_PORT               10191
 #define IDC_EDIT_TIME_LEN               10192
-#define IDC_EDIT3                       10193
 #define IDC_EDIT_B_INTERL               10193
 #define IDC_STATIC_COM                  10194
 #define IDC_STATIC_TIME_LEN             10195
 #define IDC_STATIC_B_INTREL             10196
+#define IDC_EDIT_COUNT                  10197
+#define IDC_STATIC_COUNT                10198
+#define IDC_EDIT_WAIT_TIME_LEN          10199
+#define IDC_STATIC_TIME_LEN2            10200
+#define IDC_STATIC_WAIT_TIME_LEN        10200
 
 // Next default values for new objects
 // 
@@ -119,7 +123,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        157
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         10197
+#define _APS_NEXT_CONTROL_VALUE         10199
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif
